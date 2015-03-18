@@ -1,0 +1,1 @@
+cp sample-paper.bbl bibliography/sample-paper.bbl

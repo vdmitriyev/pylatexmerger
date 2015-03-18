@@ -1,0 +1,13 @@
+*.aux
+*.gz
+*.log
+*.dvi
+*.bbl
+*.blg
+*.ps
+*.nav
+*.snm
+*.toc
+*.out
+*.txt
+bibliography\sample-paper.bbl

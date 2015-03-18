@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adapted version of the lnbip.tex tempalte provied by 
+% Lecture Notes in Business Information Processing from Springer-Verlag
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% indicates if pdf (via pdflatex) output
+
+\documentclass[lnbip]{svmultln}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% indexgeneration
+\usepackage{makeidx}  
+\usepackage{graphicx}
+\usepackage[english]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Path to the folder with images that are used in paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\graphicspath{{models/eps/}}
+\graphicspath{{models/png/}}
+
+% specify extensions and you won't have mention in while using \includegraphics
+\DeclareGraphicsExtensions{.png}
+%\DeclareGraphicsExtensions{.eps}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import own latex improvments
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{own-styles-and-commands.tex}
+
+% to be prepared for an author index  
+% \makeindex
+
+%
+\begin{document}
+%
+\mainmatter              
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main content of the paper starts here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Here Is Title Of Your Article}
+
+% abbreviated title (for running head)
+\titlerunning{Some Title Also}  
+
+% also used for the TOC unless
+% \toctitle is used
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Authors List
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{authors/authors}
+
+% typeset the title of the contribution
+\maketitle   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{0_abstract/main_section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introduction Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{1_introduction/main_section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Related Works Section 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{2_related_works/main_section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conclusion and Future Works
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{3_conclusion_and_future_works/main_section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References, Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrt}
+\bibliography{bibliography/bibliography}
+
+\end{document}
