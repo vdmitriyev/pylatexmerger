@@ -16,7 +16,7 @@ Check [sample-paper](sample-paper) folder for concrete example of the paper orga
 
 ### Example
 
-Check [sample-paper](sample-paper) folder for the example publication that is using LaTeX template LNBIP (Lecture Notes in Business Information Processing) from [Springer](http://www.springer.com/computer/lncs?SGWID=0-164-6-791344-0). Try to copy 'pylatexmerger.py' script there and run it. However, before running python script, you will need to create 'configs.py' at the same directory:
+Check [sample-paper](sample-paper) folder for the example publication that is using LaTeX template [LNBIP](http://www.springer.com/computer/lncs?SGWID=0-164-6-793326-0) (Lecture Notes in Business Information Processing) from Springer. Try to copy 'pylatexmerger.py' script there and run it. However, before running python script, you will need to create 'configs.py' at the same directory:
 
 ```
 # -*- coding: utf-8 -*-
