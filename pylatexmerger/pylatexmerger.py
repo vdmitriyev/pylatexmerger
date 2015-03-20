@@ -190,10 +190,13 @@ class PrepearPublication():
         return text
 
     def copy_supported_files(self):
-
-        for directory in self.config.DIRS_TO_COPY:
-            shutil.copytree(self.dir_helper.publication_path + directory,
-                            self.temp_dir + directory)
+        try:
+            for directory in self.config.DIRS_TO_COPY:
+                shutil.copytree(self.dir_helper.publication_path + directory,
+                                self.temp_dir + directory)
+        except Exception, ex:
+            print '[e] exception {}'.format(str(ex))
+            print '[i] looks like to folder existing that are scheduled for copying'
 
         for file_ in self.config.FILES_TO_COPY:
             index = file_.rfind('\\')
