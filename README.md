@@ -39,11 +39,14 @@ PUBLICATION_PATH = '../sample-paper/'
 ```
 
 ### Getting Started (Fast Run)
+
 ```
-git clone https://github.com/vdmitriyev/pylatexmerger.git
-cd pylatexmerger
-cd pylatexmerger
-python pylatexmerger.py
+$ git clone https://github.com/vdmitriyev/pylatexmerger.git
+$ cd pylatexmerger\sample-paper\build-latex-win
+$ _build.bat
+$ cd ..\..\
+$ cd pylatexmerger
+$ python pylatexmerger.py
 ```
 
 

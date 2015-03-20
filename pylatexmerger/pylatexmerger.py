@@ -124,11 +124,6 @@ class PrepearPublication():
 
         self.dest_tex_file = self.temp_dir + self.config.TEX_FILE
 
-
-    def info(self):
-        print "Publication is ready [IN CASE OF NO ERROR]"
-        print "Check following folder: \n" + self.temp_dir
-
     def construct_path(self, str_input):
         """
             (obj, str) -> (str)
@@ -139,9 +134,7 @@ class PrepearPublication():
         str_result = str_input[len('\input{'):-1]
         str_result = self.publication_path + str_result
 
-        #print dir(self)
-
-        print '[i] constructed path {}'.format(str_result)
+        #print '[i] constructed path {}'.format(str_result)
 
         if str_result[-3:] != 'tex':
              str_result = str_result + '.tex'
@@ -190,6 +183,12 @@ class PrepearPublication():
         return text
 
     def copy_supported_files(self):
+        """
+            (obj) -> None
+
+            Copying supported files
+        """
+
         try:
             for directory in self.config.DIRS_TO_COPY:
                 shutil.copytree(self.dir_helper.publication_path + directory,
@@ -204,10 +203,12 @@ class PrepearPublication():
             if index != -1:
                 dest_file = file_[index+1:]
 
-            #print '[i] dest_file: {}'.format(dest_file)
-
-            shutil.copy2(self.dir_helper.publication_path + file_,
-                         self.temp_dir + dest_file)
+            try:
+                shutil.copy2(self.dir_helper.publication_path + file_,
+                            self.temp_dir + dest_file)
+            except Exception, ex:
+                print '[e] exception {}'.format(str(ex))
+                print '[i] file "{}" was not copied'.format(self.dir_helper.publication_path + file_)
 
     def create_bat_file(self):
         """
@@ -241,11 +242,19 @@ class PrepearPublication():
         """
 
         self.copy_supported_files()
-        updated_text = self.replace_includes(file_name=self.source_tex_file)
-        final_text = self.replace_bibliography(updated_text)
-        self.dir_helper.save_file(file_name=self.dest_tex_file, text=final_text)
+        tex = self.replace_includes(file_name=self.source_tex_file)
+
+        try:
+            tex = self.replace_bibliography(tex)
+        except Exception, ex:
+             print '[e] exception {}'.format(str(ex))
+             print '[i] bibliography was not replaced - run firstly "build-latex-win\\_build.bat" for bbl file'
+
+        self.dir_helper.save_file(file_name=self.dest_tex_file, text=tex)
         self.create_bat_file()
-        self.info()
+
+        print '\n[i] publication is ready - IN CASE NO ERROR ACCURED'
+        print '[i] check foloder: "{}"\n'.format(self.temp_dir)
 
 def main():
 
